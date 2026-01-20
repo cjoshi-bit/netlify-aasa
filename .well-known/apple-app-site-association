@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "9K5LVJWVSV.com.ardira.surveyvista",
-        "paths": ["*"]
+        "paths": ["/", "/*", "/open", "/open/*"]
       }
     ]
   }
