@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurveyVista - Open in App</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+    <script>
+        // Try to extract recordId from URL if present
+        const urlParams = new URLSearchParams(window.location.search);
+        const recordId = urlParams.get('recordId');
+        
+        // Attempt to open the app (this works on some devices)
+        setTimeout(() => {
+            const appUrl = recordId 
+                ? `surveyvista://ul/open?recordId=${recordId}`
+                : 'surveyvista://ul/open';
+            window.location.href = appUrl;
+        }, 100);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 SurveyVista</h1>
+        <p>If the app doesn't open automatically, please make sure SurveyVista is installed.</p>
+        <a href="https://apps.apple.com/app/your-app-id" class="button">
+            Download from App Store
+        </a>
+    </div>
+</body>
+</html>
