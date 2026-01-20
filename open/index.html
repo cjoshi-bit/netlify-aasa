@@ -3,10 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SurveyVista</title>
+    <meta name="apple-itunes-app" content="app-id=YOUR_APP_STORE_ID">
+    <title>Opening SurveyVista...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+        }
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h1 { font-size: 24px; margin-bottom: 10px; }
+        p { opacity: 0.9; font-size: 16px; }
+        .close-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
-    <h1>SurveyVista</h1>
-    <p>Install our app from the App Store. | App does not handle link properly!</p>
+    <div class="container">
+        <div class="spinner"></div>
+        <h1>Opening SurveyVista...</h1>
+        <p id="message">If the app doesn't open, please install it from the App Store.</p>
+        <a href="#" onclick="window.close(); return false;" class="close-btn" id="closeBtn" style="display:none;">Close this page</a>
+    </div>
+
+    <script>
+        // Try to close the Safari tab after app opens
+        setTimeout(function() {
+            document.getElementById('message').textContent = 'App opened! You can close this page.';
+            document.getElementById('closeBtn').style.display = 'inline-block';
+            
+            // Attempt to close window (works if opened via link)
+            window.close();
+            
+            // If window.close() doesn't work, show close button
+            setTimeout(function() {
+                if (!window.closed) {
+                    document.getElementById('closeBtn').style.display = 'inline-block';
+                }
+            }, 100);
+        }, 1000);
+
+        // Detect if user returns to page (app didn't open)
+        let hidden = false;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                hidden = true;
+            } else if (hidden) {
+                // User came back - app probably didn't open
+                document.getElementById('message').textContent = 'App not installed? Download from the App Store.';
+            }
+        });
+    </script>
 </body>
 </html>
