@@ -9,8 +9,3 @@
   [headers.values]
     Content-Type = "application/json"
     Cache-Control = "public, max-age=0, must-revalidate"
-
-[[redirects]]
-  from = "/ul/*"
-  to = "/fallback.html"
-  status = 200
