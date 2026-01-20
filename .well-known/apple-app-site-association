@@ -4,10 +4,19 @@
     "details": [
       {
         "appID": "9K5LVJWVSV.com.ardira.surveyvista",
-        "paths": ["/", "/*", "/open", "/open/*"],
+        "paths": ["/open", "/open/*"],
         "components": [
           {
-            "/": "/open/*"
+            "/": "/open",
+            "exclude": true,
+            "comment": "Exclude exact /open if needed"
+          },
+          {
+            "/": "/open/*",
+            "?": {
+              "recordId": "*"
+            },
+            "comment": "Match /open/* with optional recordId parameter"
           }
         ]
       }
