@@ -2,3 +2,9 @@
   for = "/.well-known/apple-app-site-association"
   [headers.values]
     Content-Type = "application/json"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[redirects]]
+  from = "/open"
+  to = "/"
+  status = 200
