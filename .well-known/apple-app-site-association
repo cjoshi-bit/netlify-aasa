@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "9K5LVJWVSV.com.ardira.surveyvista",
+        "paths": ["/open", "/open/*"]
+      }
+    ]
+  }
+}
