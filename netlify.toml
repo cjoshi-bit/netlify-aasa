@@ -5,6 +5,6 @@
     Cache-Control = "public, max-age=0, must-revalidate"
 
 [[redirects]]
-  from = "/open"
-  to = "/"
-  status = 200
+  from = "/ul/*"
+  to = "/404.html"
+  status = 404
