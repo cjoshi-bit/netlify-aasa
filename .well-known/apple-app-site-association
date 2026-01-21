@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "9K5LVJWVSV.com.ardira.surveyvista",
+        "appID": "9K5LVJWVSV.com.ardira.deeplink-surveyvista",
         "paths": [
           "/open",
           "/open/*"
