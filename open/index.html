@@ -3,86 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-itunes-app" content="app-id=YOUR_APP_STORE_ID">
-    <title>Opening SurveyVista...</title>
+    <title>Open Survey - SurveyVista</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 20px;
         }
+        
         .container {
-            max-width: 400px;
-        }
-        .spinner {
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top: 3px solid white;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        h1 { font-size: 24px; margin-bottom: 10px; }
-        p { opacity: 0.9; font-size: 16px; }
-        .close-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
             background: white;
-            color: #667eea;
-            text-decoration: none;
+            border-radius: 24px;
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        
+        .icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+            border-radius: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        h1 {
+            color: #1d1d1f;
+            margin-bottom: 16px;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        
+        .message {
+            color: #6e6e73;
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .info-box {
+            background: #f5f5f7;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .info-box h2 {
+            color: #1d1d1f;
+            font-size: 20px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-box p {
+            color: #6e6e73;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .steps {
+            display: grid;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+            padding-top: 2px;
+        }
+        
+        .step-content p {
+            font-size: 14px;
+        }
+        
+        .app-hint {
+            margin-top: 30px;
+            padding: 20px;
+            background: #e3f2fd;
+            border-radius: 12px;
+            color: #1565c0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .params {
+            margin-top: 20px;
+            padding: 16px;
+            background: #fff3e0;
             border-radius: 8px;
-            font-weight: 600;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #e65100;
+            text-align: left;
+            word-break: break-all;
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 24px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .message {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="spinner"></div>
-        <h1>Opening SurveyVista...</h1>
-        <p id="message">If the app doesn't open, please install it from the App Store.</p>
-        <a href="#" onclick="window.close(); return false;" class="close-btn" id="closeBtn" style="display:none;">Close this page</a>
+        <div class="icon">🚀</div>
+        <h1>Survey Link</h1>
+        <p class="message">This is a deep link page designed to open in the SurveyVista app.</p>
+        
+        <div class="info-box">
+            <h2>📱 How it works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <p><strong>App installed:</strong> The link automatically opens in the SurveyVista app</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <p><strong>No app:</strong> You can view this information page in your browser</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="app-hint">
+            💡 <strong>Pro tip:</strong> Install the SurveyVista app for the best experience with surveys, analytics, and offline access.
+        </div>
+        
+        <div id="params-container"></div>
     </div>
-
+    
     <script>
-        // Try to close the Safari tab after app opens
-        setTimeout(function() {
-            document.getElementById('message').textContent = 'App opened! You can close this page.';
-            document.getElementById('closeBtn').style.display = 'inline-block';
-            
-            // Attempt to close window (works if opened via link)
-            window.close();
-            
-            // If window.close() doesn't work, show close button
-            setTimeout(function() {
-                if (!window.closed) {
-                    document.getElementById('closeBtn').style.display = 'inline-block';
-                }
-            }, 100);
-        }, 1000);
-
-        // Detect if user returns to page (app didn't open)
-        let hidden = false;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                hidden = true;
-            } else if (hidden) {
-                // User came back - app probably didn't open
-                document.getElementById('message').textContent = 'App not installed? Download from the App Store.';
-            }
-        });
+        // Display URL parameters if present
+        const urlParams = new URLSearchParams(window.location.search);
+        const paramsObj = {};
+        
+        for (const [key, value] of urlParams) {
+            paramsObj[key] = value;
+        }
+        
+        if (Object.keys(paramsObj).length > 0) {
+            const paramsContainer = document.getElementById('params-container');
+            const paramsDiv = document.createElement('div');
+            paramsDiv.className = 'params';
+            paramsDiv.innerHTML = `
+                <strong>📋 Link Parameters:</strong><br>
+                ${JSON.stringify(paramsObj, null, 2)}
+            `;
+            paramsContainer.appendChild(paramsDiv);
+        }
     </script>
 </body>
 </html>
